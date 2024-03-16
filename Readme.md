@@ -1,15 +1,19 @@
 # Cappuccino
-My attempt to do "quick research" of Capuccino Monodroid project
+
+xamarin-forms branch
+
+My attempt to do "quick research" of Capuccino iOS Xamarin /Monodroid project
 (and, maybe, to assemble some veery lite and small VK client... idk yet!)
 
 ## My 2 cents
 "Empty" UWP project added into solution
 
-## About the original
-.NET 7 VK Messaging Client
+## About my fork
+- UWP (16299) & .NET Standard 2.0
+- No W10M compatibility
 
 ## Reference
-https://github.com/JaneySprings/Cappuccino
+https://github.com/JaneySprings/Cappuccino (master branch)
 
 ## ..
 As is. No support. RnD only.

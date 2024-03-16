@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns:xaml="http://xamarin.com/schemas/2014/forms"
+    x:Class="Cappuccino.App.RootPage"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Cappuccino.App"
+ >
+
+    <TabBar>
+       <Tab Title="Contacts" Icon="users_3_outline_32">
+           <xaml:ShellContent ContentTemplate="{xaml:DataTemplate local:ContactsPage}" />
+       </Tab>
+       <Tab Title="Chats" Icon="message_outline_32">
+           <xaml:ShellContent ContentTemplate="{xaml:DataTemplate local:ChatsPage}" />
+       </Tab>
+       <Tab Title="Profile" Icon="settings_outline_32">
+           <xaml:ShellContent ContentTemplate="{xaml:DataTemplate local:ProfilePage}" />
+       </Tab>
+    </TabBar>
+</ContentPage>
