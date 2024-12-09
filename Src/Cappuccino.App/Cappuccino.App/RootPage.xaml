@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cappuccino.App.RootPage"
+             xmlns:local="clr-namespace:Cappuccino.App"
+ >
+
+    <!--TabbedPage.Resources>
+        <ResourceDictionary>
+            <local:NonNullToBooleanConverter x:Key="booleanConverter" />
+        </ResourceDictionary>
+    </TabbedPage.Resources-->
+
+    <!--TabbedPage.ItemTemplate>
+        <DataTemplate>
+            <ContentPage Title="Contacts" IconImageSource="users_3_outline_32">
+                <StackLayout Padding="5, 25">
+                    <Label Text="Contacts"  HorizontalOptions="Center" />
+                    <Image Source="{Binding PhotoUrl}" WidthRequest="200" HeightRequest="200" />
+                    <StackLayout Padding="50, 10">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Family:" HorizontalOptions="FillAndExpand" />
+                            <Label Text="{Binding Family}" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </ContentPage>
+        </DataTemplate>
+    </TabbedPage.ItemTemplate-->
+
+
+    <!--TabbedPage.It>
+        <DataTemplate>
+            <ContentPage Title="Contacts" IconImageSource="users_3_outline_32">
+                <StackLayout Padding="5, 25">
+                    <Label Text="Contacts"  HorizontalOptions="Center" />
+                    <Image Source="{Binding PhotoUrl}" WidthRequest="200" HeightRequest="200" />
+                    <StackLayout Padding="50, 10">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Family:" HorizontalOptions="FillAndExpand" />
+                            <Label Text="{Binding Family}" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </ContentPage>
+        </DataTemplate>
+    </TabbedPage.It-->
+
+
+
+    <TabbedPage.ItemTemplate>
+        <DataTemplate>
+            <ContentPage Title="Contacts" IconImageSource="users_3_outline_32">
+                <StackLayout Padding="5, 25">
+                    <Label Text="Contacts"  HorizontalOptions="Center" />
+                    <Image Source="{Binding PhotoUrl}" WidthRequest="200" HeightRequest="200" />
+                    <StackLayout Padding="50, 10">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Family:" HorizontalOptions="FillAndExpand" />
+                            <Label Text="{Binding Family}" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </ContentPage>
+        </DataTemplate>
+    </TabbedPage.ItemTemplate>
+
+    <!--TabBar>
+       <Tab Title="Contacts" Icon="users_3_outline_32">
+           <ShellContent ContentTemplate="{DataTemplate local:ContactsPage}" />
+        </Tab>
+       <Tab Title="Chats" Icon="message_outline_32">
+           <ShellContent ContentTemplate="{DataTemplate local:ChatsPage}" />
+       </Tab>
+       <Tab Title="Profile" Icon="settings_outline_32">
+           <ShellContent ContentTemplate="{DataTemplate local:ProfilePage}" />
+       </Tab>
+    </TabBar-->
+
+
+</TabbedPage>

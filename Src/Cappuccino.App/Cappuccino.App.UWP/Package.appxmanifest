@@ -7,20 +7,20 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="CCA0AA55-8BFE-4A45-AD96-337C4F2E735F"
-    Publisher="CN=C478C353-EB96-4B94-8867-F3BFC7BD9E0A"
+    Name="ME.CappuccinoV1"
+    Publisher="CN=Admin"
     Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="ec0cc741-fd3e-485c-81be-68815c480690" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Cappuccino.App.UWP</DisplayName>
-    <PublisherDisplayName>C478C353-EB96-4B94-8867-F3BFC7BD9E0A</PublisherDisplayName>
+    <DisplayName>Cappuccino v1.0</DisplayName>
+    <PublisherDisplayName>mediaexplorer</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
   <Dependencies>
-    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+     <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.15063.0" MaxVersionTested="10.0.19041.0" />
   </Dependencies>
 
   <Resources>
@@ -32,7 +32,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="Cappuccino.App.UWP.App">
       <uap:VisualElements
-        DisplayName="Cappuccino.App.UWP"
+        DisplayName="Cappuccino 1.0"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
         Description="Cappuccino.App.UWP"
@@ -45,6 +45,10 @@
           </uap:ShowNameOnTiles>
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="landscape"/>
+          <uap:Rotation Preference="portrait"/>
+          <uap:Rotation Preference="landscapeFlipped"/></uap:InitialRotationPreference>
       </uap:VisualElements>
     </Application>
   </Applications>

@@ -2,9 +2,11 @@
 using Cappuccino.Core.Network.Auth;
 using Cappuccino.Core.Network.Handlers;
 
-namespace Cappuccino.Core.Network.Config {
+namespace Cappuccino.Core.Network.Config 
+{
 
-    public static class CredentialsManager {
+    public static class CredentialsManager 
+    {
         internal static ApiConfiguration? ApiConfig { get; private set; }
 
         private static AccessToken? _accessToken;
@@ -16,14 +18,21 @@ namespace Cappuccino.Core.Network.Config {
             }
         }
 
-        public static int CurrentUserId => AccessToken?.UserId ?? 0;
+        public static int CurrentUserId
+        {
+            get
+            {
+                return AccessToken?.UserId ?? 0;
+            }
+        }
 
-
-        public static void ApplyConfiguration(ApiConfiguration config) {
+        public static void ApplyConfiguration(ApiConfiguration config) 
+        {
             ApiConfig = config;
             _accessToken = null;
         }
-        public static bool ApplyAccessToken(AccessToken? token, IValidationCallback? callback = null) {
+        public static bool ApplyAccessToken(AccessToken? token, IValidationCallback? callback = null) 
+        {
             if (!IsTokenValid(token, callback)) 
                 return false;
                 
@@ -32,8 +41,10 @@ namespace Cappuccino.Core.Network.Config {
         }
 
 
-        public static bool IsInternalTokenValid(IValidationCallback? callback = null) {
-            if (ApiConfig?.TokenStorageHandler == null) {
+        public static bool IsInternalTokenValid(IValidationCallback? callback = null) 
+        {
+            if (ApiConfig?.TokenStorageHandler == null) 
+            {
                 callback?.OnValidationFail($"Implementation of {nameof(ITokenStorageHandler)} does not find");
                 return false;
             }

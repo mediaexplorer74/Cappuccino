@@ -7,11 +7,13 @@ using Cappuccino.Core.Network.Utils;
 
 namespace Cappuccino.Core.Network.Auth {
 
-    public class ImplicitAuthentificator {
+    public class ImplicitAuthentificator 
+    {
         public EventHandler? Authorized { get; set; }
 
 
-        public string BuildAuthorizationUri() {
+        public string BuildAuthorizationUri() 
+        {
             if (CredentialsManager.ApiConfig?.ApplicationId == null)
                 throw new Exception("Application Id does not exist in configuration");
 

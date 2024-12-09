@@ -13,7 +13,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1821" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
 
@@ -23,5 +24,9 @@
 
   <ItemGroup>
     <Folder Include="Resources\Lang\" />
+    <Folder Include="UI\Auth\" />
+    <Folder Include="UI\Chats\" />
+    <Folder Include="UI\Contacts\" />
+    <Folder Include="UI\Profile\" />
   </ItemGroup>
 </Project>

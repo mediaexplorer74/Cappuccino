@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Cappuccino.App.UWP")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Cappuccino")]
+[assembly: AssemblyDescription("VKontacte social network messenger")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Cappuccino.App.UWP")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyProduct("Cappuccino")]
+[assembly: AssemblyCopyright("Copyright ©  MediaExplorer 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

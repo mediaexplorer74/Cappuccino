@@ -17,6 +17,8 @@ using Windows.UI.Xaml.Navigation;
 using Cappuccino.Core.Network.Config;
 using Cappuccino.Core.Network.Handlers;
 using Cappuccino.Core.Network.Models;
+using System.Globalization;
+using Scope = Cappuccino.Core.Network.Auth.Permissions;
 
 namespace Cappuccino.App.UWP
 {
@@ -25,6 +27,12 @@ namespace Cappuccino.App.UWP
     /// </summary>
     sealed partial class App : Application
     {
+
+        private const int APP_ID = 7317599;
+        private const int LONGPOLL_VERSION = 12;
+        private const string API_VERSION = "5.131";
+
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -32,6 +40,7 @@ namespace Cappuccino.App.UWP
         public App()
         {
             this.InitializeComponent();
+
             this.Suspending += OnSuspending;
         }
 
@@ -48,6 +57,26 @@ namespace Cappuccino.App.UWP
                // this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
+
+            
+            //*************************************
+
+            CredentialsManager.ApplyConfiguration(new ApiConfiguration.Builder()
+            .WithApiLanguage(CultureInfo.CurrentCulture.TwoLetterISOLanguageName)
+            .WithAppId(APP_ID)
+            .WithApiVersion(API_VERSION)
+            .WithLongPollVersion(LONGPOLL_VERSION)
+            .WithTokenStorageHandler(new TokenStorageProvider())
+#if DEBUG
+            .WithPermissions(new[] { Scope.Friends, Scope.Messages })
+#else
+            .WithPermissions(new[] { Scope.Friends, Scope.Messages, Scope.Offline })
+#endif
+            .Build()
+        );
+
+
+            // ************************************
 
             Frame rootFrame = Window.Current.Content as Frame;
 
@@ -78,15 +107,22 @@ namespace Cappuccino.App.UWP
               
                 //TODO
                 //TokenExpiredHandler.Expired += TokenExpired;
-              
+
+                
                 if (CredentialsManager.IsInternalTokenValid())
                 {
-                    rootFrame.Navigate(typeof(RootPage), e.Arguments);
+                    //MainPage = new RootPage();
+
+                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
                 }
                 else
                 {
-                    rootFrame.Navigate(typeof(AuthPage), e.Arguments);
+                    //MainPage = new AuthPage();
+
+                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
                 }
+                                
+                //rootFrame.Navigate(typeof(MainPage), e.Arguments);
 
             }
             // Ensure the current window is active

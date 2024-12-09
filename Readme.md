@@ -1,22 +1,24 @@
-# Cappuccino
+# Cappuccino - xamarin-forms branch
+![](/Images/logo.png)
 
-xamarin-forms branch
 
 My attempt to do "quick research" of Capuccino iOS Xamarin /Monodroid project
-(and, maybe, to assemble some veery lite and small VK client... idk yet!)
+(and, maybe, to assemble some veery lite and small VK client... idk yet!).
+Experimental software (16299-15063 metamorph.). No auth page at now.
 
 ## My 2 cents
-"Empty" UWP project added into solution
+- I added "empty" UWP project into solution
+- Xamarin Forms, not MAUI
 
 ## About my fork
 - UWP (16299) & .NET Standard 2.0
-- No W10M compatibility
+- Special W10M 15063+ compatibility 
 
 ## Reference
-https://github.com/JaneySprings/Cappuccino (master branch)
+https://github.com/JaneySprings/Cappuccino (Original project; cancelled)
 
 ## ..
 As is. No support. RnD only.
 
 ## .
-[m][e] 2023
+December, 2024 [m][e]
