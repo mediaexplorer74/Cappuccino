@@ -6,15 +6,18 @@ using Cappuccino.Core.Network.Config;
 using System;
 using System.Threading;
 
-namespace Cappuccino.Core.Network {
-    public class ApiMethod<TResult>: ApiRequest<TResult>, IDisposable where TResult : class {
+namespace Cappuccino.Core.Network 
+{
+    public class ApiMethod<TResult>: ApiRequest<TResult>, IDisposable where TResult : class 
+    {
         private readonly string method;
         private readonly Dictionary<string, string> arguments;
         private Action<TResult>? successHandler;
         private Action<ApiException>? errorHandler;
         private readonly Executor executor;
 
-        public ApiMethod(string method) {
+        public ApiMethod(string method)
+        {
             this.executor = new Executor(EndPoints.ApiBaseUri);
             this.arguments = new Dictionary<string, string>();
             this.method = method;
@@ -24,7 +27,8 @@ namespace Cappuccino.Core.Network {
             AddParam("access_token", CredentialsManager.AccessToken?.Token);
         }
 
-        protected override async Task<TResult> OnExecuteAsync(CancellationToken cancellationToken) {
+        protected override async Task<TResult> OnExecuteAsync(CancellationToken cancellationToken) 
+        {
             string request = $"method/{this.method}?{this.arguments.JoinToUrl()}";
             string? response = await executor.GetAsync(request, cancellationToken);
             if (response == null)
@@ -33,51 +37,72 @@ namespace Cappuccino.Core.Network {
             return OnServerResponseReceived(response);
         }
 
-        public ApiMethod<TResult> OnSuccess(Action<TResult> handler) {
+        public ApiMethod<TResult> OnSuccess(Action<TResult> handler) 
+        {
             this.successHandler = handler;
             return this;
         }
-        public ApiMethod<TResult> OnError(Action<ApiException> handler) {
+
+        public ApiMethod<TResult> OnError(Action<ApiException> handler) 
+        {
             this.errorHandler = handler;
             return this;
         }
-        public ApiMethod<TResult> AddParam(string key, int? value) {
+
+        public ApiMethod<TResult> AddParam(string key, int? value) 
+        {
             if (value != null)
                 this.arguments.Add(key, value.ToString());
             return this;
         }
-        public ApiMethod<TResult> AddParam(string key, string? value) {
+
+        public ApiMethod<TResult> AddParam(string key, string? value) 
+        {
             if (value != null)
                 this.arguments.Add(key, value);
             return this;
         }
-        public ApiMethod<TResult> AddParam(string key, bool? value) {
+
+        public ApiMethod<TResult> AddParam(string key, bool? value) 
+        {
             if (value != null)
                 this.arguments.Add(key, value.ToString().ToLower());
             return this;
         }
-        public ApiMethod<TResult> AddParam(string key, IEnumerable<string>? value) {
+
+        public ApiMethod<TResult> AddParam(string key, IEnumerable<string>? value) 
+        {
             if (value != null)
                 this.arguments.Add(key, string.Join(",", value));
             return this;
         }
-        public ApiMethod<TResult> AddParam(string key, IEnumerable<int>? value) {
+
+        public ApiMethod<TResult> AddParam(string key, IEnumerable<int>? value) 
+        {
             if (value != null)
                 this.arguments.Add(key, string.Join(",", value));
             return this;
         }
-        public async Task GetAsync(CancellationToken cancellationToken = default) {
-            try {
+
+        public async Task GetAsync(CancellationToken cancellationToken = default) 
+        {
+            try 
+            {
                 var response = await ExecuteAsync(cancellationToken);
                 this.successHandler?.Invoke(response);
-            } catch (TaskCanceledException) {
+            } 
+            catch (TaskCanceledException) 
+            {
                 // ignored
-            } catch (ApiException e) {
+            } 
+            catch (ApiException e) 
+            {
                 this.errorHandler?.Invoke(e);
             }
         }
 
-        public void Dispose() {
+        public void Dispose() 
+        {
             this.executor.Dispose();
         }
     }

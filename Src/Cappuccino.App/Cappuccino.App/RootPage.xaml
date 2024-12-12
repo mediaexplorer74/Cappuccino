@@ -29,7 +29,7 @@
     </TabbedPage.ItemTemplate-->
 
 
-    <!--TabbedPage.It>
+    <!--TabbedPage.ItemTemplate>
         <DataTemplate>
             <ContentPage Title="Contacts" IconImageSource="users_3_outline_32">
                 <StackLayout Padding="5, 25">
@@ -44,11 +44,11 @@
                 </StackLayout>
             </ContentPage>
         </DataTemplate>
-    </TabbedPage.It-->
+    </TabbedPage.ItemTemplate-->
 
 
 
-    <TabbedPage.ItemTemplate>
+    <!--TabbedPage.ItemTemplate>
         <DataTemplate>
             <ContentPage Title="Contacts" IconImageSource="users_3_outline_32">
                 <StackLayout Padding="5, 25">
@@ -63,7 +63,7 @@
                 </StackLayout>
             </ContentPage>
         </DataTemplate>
-    </TabbedPage.ItemTemplate>
+    </TabbedPage.ItemTemplate-->
 
     <!--TabBar>
        <Tab Title="Contacts" Icon="users_3_outline_32">
@@ -76,6 +76,22 @@
            <ShellContent ContentTemplate="{DataTemplate local:ProfilePage}" />
        </Tab>
     </TabBar-->
+
+    <!--TabbedPage.Children>
+        <local:ContactsPage />
+        <local:ChatsPage />
+        <local:ProfilePage />
+    </TabbedPage.Children-->
+    <NavigationPage Title="Contacts" Icon="first.png">
+        <x:Arguments>
+            <local:ContactsPage />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Profile" Icon="second.png">
+        <x:Arguments>
+            <local:ProfilePage />
+        </x:Arguments>
+    </NavigationPage>
 
 
 </TabbedPage>

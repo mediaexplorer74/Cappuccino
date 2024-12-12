@@ -88,7 +88,11 @@ namespace Cappuccino.App.UWP
                 rootFrame = new Frame();
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
+                
                 Xamarin.Forms.Forms.Init(e);
+
+                // The actual style switching
+                //((Style)this.Resources["TabbedPageStyle"]).Setters[0] = ((Style)this.Resources["TabbedPageStyle2"]).Setters[0];
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

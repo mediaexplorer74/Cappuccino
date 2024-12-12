@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Cappuccino.Core.Network;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Cappuccino.App
 {
-
-	public partial class ContactsPage : ContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class ContactsPage : ContentPage
 	{
 		public ContactsPage()
 		{
@@ -25,9 +27,9 @@ namespace Cappuccino.App
 			await new ApiMethod<Core.Network.Methods.Friends.Get.Response>("friends.get")
 				.AddParam("count", 3)
 				.AddParam("fields", RequestConstants.UserDefaults())
-				.OnSuccess(response => test.Text = response.Inner!.Items![0].FirstName)
-				.OnError(error => test.Text = error.Message)
-				.GetAsync(/*CancellationToken.None*/default);
+				.OnSuccess(response => contacts_test.Text = response.Inner!.Items![0].FirstName)
+				.OnError(error => contacts_test.Text = error.Message)
+				.GetAsync(CancellationToken.None);
 		}
 	}
 }

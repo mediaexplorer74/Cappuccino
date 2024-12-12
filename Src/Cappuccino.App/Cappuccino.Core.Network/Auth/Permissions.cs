@@ -1,7 +1,8 @@
 namespace Cappuccino.Core.Network.Auth {
 
     /* Mark: documentation[https://vk.com/dev/permissions] */
-    public static class Permissions {
+    public static class Permissions 
+    {
         public const int Friends = 2;
         public const int Photos = 4;
         public const int Audio = 8;

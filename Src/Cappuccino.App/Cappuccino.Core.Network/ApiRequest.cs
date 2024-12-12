@@ -5,9 +5,12 @@ using Cappuccino.Core.Network.Handlers;
 using System.Text.Json;
 using System.Threading;
 
-namespace Cappuccino.Core.Network {
-    public abstract class ApiRequest<TResult> {
-        public async Task<TResult> ExecuteAsync(CancellationToken cancellationToken) {
+namespace Cappuccino.Core.Network 
+{
+    public abstract class ApiRequest<TResult> 
+    {
+        public async Task<TResult> ExecuteAsync(CancellationToken cancellationToken) 
+        {
             if (!CredentialsManager.IsInternalTokenValid())
                 throw new ApiException("Access token incorrect");
 
@@ -17,7 +20,8 @@ namespace Cappuccino.Core.Network {
         protected abstract Task<TResult> OnExecuteAsync(CancellationToken cancellationToken);
 
         /* Dirty response, may contain error from server */
-        protected internal TResult OnServerResponseReceived(string response) {
+        protected internal TResult OnServerResponseReceived(string response) 
+        {
             ErrorResponse error = JsonSerializer.Deserialize<ErrorResponse>(response)!;
 
             if (error.InnerError == null)
@@ -28,7 +32,8 @@ namespace Cappuccino.Core.Network {
         }
 
         /* Handled response, deserialize and pass */
-        protected virtual TResult OnResponseSuccess(string response) {
+        protected virtual TResult OnResponseSuccess(string response) 
+        {
             return JsonSerializer.Deserialize<TResult>(response)!;
         }
     }

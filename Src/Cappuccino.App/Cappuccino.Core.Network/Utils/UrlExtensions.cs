@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Cappuccino.Core.Network.Utils {
-    internal static class UrlExtensions {
+namespace Cappuccino.Core.Network.Utils 
+{
+    internal static class UrlExtensions
+    {
         public static string JoinToUrl(this Dictionary<string, string> dictionary) 
         {
             return String.Join("&", dictionary.Select(pair => $"{pair.Key}={pair.Value}"));

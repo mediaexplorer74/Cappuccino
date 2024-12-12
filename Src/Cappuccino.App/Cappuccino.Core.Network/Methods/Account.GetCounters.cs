@@ -1,7 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
 /* Mark: https://vk.com/dev/account.getCounters */
-namespace Cappuccino.Core.Network.Methods.Account {
+namespace Cappuccino.Core.Network.Methods.Account 
+{
 
     public class GetCounters : ApiMethod<GetCounters.Response> {
         public GetCounters() : base("account.getCounters") {}
@@ -12,10 +13,12 @@ namespace Cappuccino.Core.Network.Methods.Account {
 
 
 
-        public class Response {
+        public class Response 
+        {
             [JsonPropertyName("response")] public InnerResponse? Inner { get; set; }
 
-            public class InnerResponse {
+            public class InnerResponse 
+            {
                 [JsonPropertyName("friends")] public int Friends { get; set; }
                 [JsonPropertyName("friends_suggestions")] public int FriendsSuggestions { get; set; }
                 [JsonPropertyName("messages")] public int Messages { get; set; }

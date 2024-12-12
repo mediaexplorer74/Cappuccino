@@ -4,13 +4,13 @@ using Cappuccino.Core.Network.Handlers;
 
 namespace Cappuccino.Core.Network.Config 
 {
-
     public static class CredentialsManager 
     {
         internal static ApiConfiguration? ApiConfig { get; private set; }
 
         private static AccessToken? _accessToken;
-        internal static AccessToken? AccessToken {
+        internal static AccessToken? AccessToken 
+        {
             get => _accessToken ??= ApiConfig?.TokenStorageHandler?.OnTokenRequested();
             private set {
                 ApiConfig?.TokenStorageHandler?.OnTokenReceived(value!);
@@ -45,7 +45,9 @@ namespace Cappuccino.Core.Network.Config
         {
             if (ApiConfig?.TokenStorageHandler == null) 
             {
-                callback?.OnValidationFail($"Implementation of {nameof(ITokenStorageHandler)} does not find");
+                callback?.OnValidationFail(
+                    $"Implementation of {nameof(ITokenStorageHandler)} does not find");
+
                 return false;
             }
 
@@ -55,7 +57,8 @@ namespace Cappuccino.Core.Network.Config
             return false;
         }
         
-        internal static bool IsTokenValid(AccessToken? token, IValidationCallback? callback = null) {
+        internal static bool IsTokenValid(AccessToken? token, IValidationCallback? callback = null) 
+        {
             if (token == null) {
                 callback?.OnValidationFail("Instance of token is null");
                 return false;
@@ -66,7 +69,8 @@ namespace Cappuccino.Core.Network.Config
                 return false;
             }
             
-            if (token.ExpiresIn < DateTimeOffset.Now.ToUnixTimeSeconds() && token.ExpiresIn > 0) {
+            if (token.ExpiresIn < DateTimeOffset.Now.ToUnixTimeSeconds() && token.ExpiresIn > 0) 
+            {
                 callback?.OnValidationFail("Token lifetime is expired. Re-sign required");
                 return false;
             }

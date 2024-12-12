@@ -11,7 +11,7 @@
     Publisher="CN=Admin"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="ec0cc741-fd3e-485c-81be-68815c480690" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="ec0cc741-fd3e-4825-81be-68815c480690" PhonePublisherId="00000000-0025-0000-0050-080000000050"/>
 
   <Properties>
     <DisplayName>Cappuccino v1.0</DisplayName>

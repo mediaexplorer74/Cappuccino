@@ -5,7 +5,7 @@
             Title="Contacts">
 
 	<StackLayout>
-      <Label x:Name="test" />
+      <Label x:Name="contacts_test" />
 	</StackLayout>
 
 </ContentPage>

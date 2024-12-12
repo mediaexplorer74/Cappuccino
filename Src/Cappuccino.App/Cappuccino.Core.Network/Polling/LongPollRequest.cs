@@ -5,12 +5,15 @@ using Cappuccino.Core.Network.Methods.Messages;
 using System.Threading.Tasks;
 using System.Threading;
 
-namespace Cappuccino.Core.Network.Polling {
+namespace Cappuccino.Core.Network.Polling 
+{
 
-    internal class LongPollRequest : ApiRequest<LongPollResponse> {
+    internal class LongPollRequest : ApiRequest<LongPollResponse> 
+    {
         private readonly GetLongPollServer.Response.InnerResponse credentials;
 
-        public LongPollRequest(GetLongPollServer.Response.InnerResponse credentials) {
+        public LongPollRequest(GetLongPollServer.Response.InnerResponse credentials) 
+        {
             this.credentials = credentials;
         }
 

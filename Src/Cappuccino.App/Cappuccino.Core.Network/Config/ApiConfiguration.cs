@@ -2,9 +2,10 @@
 using System.Linq;
 using Cappuccino.Core.Network.Handlers;
 
-namespace Cappuccino.Core.Network.Config {
-
-    public class ApiConfiguration {
+namespace Cappuccino.Core.Network.Config 
+{
+    public class ApiConfiguration 
+    {
         public int Permissions { get; }
         public int ApplicationId { get; }
         public int DeviceId { get; }
@@ -14,7 +15,8 @@ namespace Cappuccino.Core.Network.Config {
         public string? SecretKey { get; }
         public ITokenStorageHandler? TokenStorageHandler { get; }
 
-        public ApiConfiguration(Builder builder) {
+        public ApiConfiguration(Builder builder) 
+        {
             ApplicationId = builder.AppId;
             DeviceId = builder.DeviceId;
             ApiLanguage = builder.Language;
@@ -25,7 +27,8 @@ namespace Cappuccino.Core.Network.Config {
             TokenStorageHandler = builder.TokenStorageHandler;
         }
 
-        public class Builder {
+        public class Builder 
+        {
             internal int AppId { get; private set; }
             internal int Permissions { get; private set; }
             internal int DeviceId { get; private set; }
@@ -36,40 +39,55 @@ namespace Cappuccino.Core.Network.Config {
             internal ITokenStorageHandler? TokenStorageHandler { get; private set; }
 
 
-            public Builder WithAppId(int appId) {
+            public Builder WithAppId(int appId) 
+            {
                 AppId = appId;
                 return this;
             }
-            public Builder WithDeviceId(int deviceId) {
+
+            public Builder WithDeviceId(int deviceId) 
+            {
                 DeviceId = deviceId;
                 return this;
             }
-            public Builder WithApiLanguage(string language) {
+            public Builder WithApiLanguage(string language) 
+            {
                 Language = language;
                 return this;
             }
-            public Builder WithApiVersion(string version) {
+
+            public Builder WithApiVersion(string version) 
+            {
                 ApiVersion = version;
                 return this;
             }
-            public Builder WithLongPollVersion(int version) {
+
+            public Builder WithLongPollVersion(int version) 
+            {
                 LpVersion = version;
                 return this;
             }
-            public Builder WithPermissions(IEnumerable<int> permissions) {
+
+            public Builder WithPermissions(IEnumerable<int> permissions) 
+            {
                 Permissions = permissions.Sum();
                 return this;
             }
-            public Builder WithSecretKey(string secretKey) {
+
+            public Builder WithSecretKey(string secretKey) 
+            {
                 SecretKey = secretKey;
                 return this;
             }
-            public Builder WithTokenStorageHandler(ITokenStorageHandler handler) {
+
+            public Builder WithTokenStorageHandler(ITokenStorageHandler handler)
+            {
                 TokenStorageHandler = handler;
                 return this;
             }
 
-            public ApiConfiguration Build() {
+            public ApiConfiguration Build() 
+            {
                 return new ApiConfiguration(this);
             }
         }
